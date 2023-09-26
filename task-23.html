@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #fffdfd;
+            margin-top: 10%;
+        }
+
+        .home {
+            max-width: 40%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgb(233, 231, 231);
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40px;
+            width: 100%;
+            background-color: rgb(211, 36, 36);
+            color: white;
+        }
+
+        .error-text {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <form class="home">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" aria-describedby="nameHelp">
+            <div id="nameHelp" class="form-text error-text">Name is required</div>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text error-text">Email is required</div>
+        </div>
+        <div class="mb-3">
+            <label for="url" class="form-label">Website</label>
+            <input type="url" class="form-control" id="password">
+            <div id="urlHelp" class="form-text error-text">URL is required</div>
+        </div>
+        <div class="mb-3">
+            <label for="message" class="form-label">Message</label>
+            <input type="text" class="form-control" id="hobbies">
+            <div id="messageHelp" class="form-text error-text">This Field is required</div>
+        </div>
+        <button type="submit" class="btn">Submit</button>
+    </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.querySelector('.home');
+            const inputs = form.querySelectorAll('input');
+
+            inputs.forEach(function (input) {
+                input.addEventListener('blur', function () {
+                    if (!input.value.trim()) {
+                        const helpText = input.parentNode.querySelector('.form-text.error-text');
+                        helpText.style.display = 'block';
+                    }
+                });
+
+                input.addEventListener('input', function () {
+                    const helpText = input.parentNode.querySelector('.form-text.error-text');
+                    helpText.style.display = 'none';
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

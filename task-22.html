@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Helvetica', sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #form {
+            margin-bottom: 20px;
+        }
+
+        input[type="button"] {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: grey;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            transition: background-color 0.3s;
+        }
+
+        input[type="button"]:hover {
+            background-color: transparent;
+        }
+
+        #result {
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="form">
+        <input type="button" value="Date" onclick="calculate()">
+        <input type="button" value="Time" onclick="calculate1()">
+    </form>
+    <p id="result"></p>
+    <script>
+        function calculate() {
+            var result = new Date();
+            var dd = result.getDate();
+            var mm = result.getMonth();
+            var yyyy = result.getFullYear();
+            today = mm + '-' + dd + '-' + yyyy;
+            document.getElementById("result").innerHTML = "Date: " + today;
+        }
+        function calculate1() {
+            const dateTimeElement = document.getElementById('result');
+            const currentDateTime = new Date();
+
+            const options = {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: 'numeric',
+                minute: 'numeric',
+                second: 'numeric',
+                timeZoneName: 'short'
+            };
+
+            const dateTimeString = currentDateTime.toLocaleString('en-US', options);
+            dateTimeElement.textContent = dateTimeString;
+        }
+    </script>
+</body>
+
+</html>

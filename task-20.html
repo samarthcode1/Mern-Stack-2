@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="calculator-form">
+        <label for="text1">Enter String:</label>
+        <input type="text" id="text1" name="text1" required>
+        <input type="button" value="Result" onclick="calculate()">
+    </form>
+    <p id="result"></p>
+    <script>
+        function calculate() 
+        {
+            var str =document.getElementById("text1").value;
+            var result;
+            if(str.length>0)
+            {
+                document.getElementById("result").innerHTML = "Expected Output: " + str.split('').sort().join('');
+            } 
+            else 
+            {
+                document.getElementById("result").innerHTML = "Please enter valid string.";
+            }
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <div class="m-4" style="margin-left: 100000x;">
+        <form action="https://www.google.com/" class="needs-validation" method="post" novalidate>
+            <div class="mb-3">
+                <label class="text for=" text">Name</label>
+                <input type="text" class="form-control" id="text" placeholder="" required>
+                <div class="invalid-feedback">Please enter a valid email address.</div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="inputEmail">Email</label>
+                <input type="email" class="form-control" id="inputEmail" placeholder="" required>
+                <div class="invalid-feedback">Please enter a valid email address.</div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="inputPassword">Password</label>
+                <input type="password" class="form-control" id="inputPassword" placeholder="" required>
+                <div class="invalid-feedback">Please enter your password to continue.</div>
+            </div>
+            <div class="form-group mb-3">
+                <label>Hobbies</label>
+                <select class="form-control" name="hobbies" placeholder="">
+                    <option value=""></option required>
+                    <option value="">Cricket</option required>
+                    <option value="">Football</option required>
+                    <option value="">Study</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-danger btn-block">Submit</button>
+            </div>
+        </form>
+
+        <script>
+            (function () {
+                'use strict';
+                window.addEventListener('load', function () {
+                    var forms = document.getElementsByClassName('needs-validation');
+                    var validation = Array.prototype.filter.call(forms, function (form) {
+                        form.addEventListener('submit', function (event) {
+                            if (form.checkValidity() === false) {
+                                event.preventDefault();
+                                event.stopPropagation();
+                            }
+                            form.classList.add('was-validated');
+                        }, false);
+                    });
+                }, false);
+            })();
+        </script>
+    </div>
+</body>
+
+</html>
